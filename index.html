@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro Colegio Cumbayá</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #8360c3, #2ebf91);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contenedor {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    input, select, button {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      background-color: #00c9a7;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #007b6e;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    h1, h2 {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Colegio Cumbayá</h1>
+    <h2>Melany Lita</h2>
+    <h2>Datos</h2>
+
+    <form id="formulario">
+      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="text" id="curso" placeholder="Curso" required>
+      <input type="text" id="especialidad" placeholder="Especialidad" required>
+      <select id="jornada" required>
+        <option value="">Seleccione jornada</option>
+        <option value="Matutina">Matutina</option>
+        <option value="Vespertina">Vespertina</option>
+        <option value="Nocturna">Nocturna</option>
+      </select>
+      <button type="submit">Registrar</button>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const formulario = document.getElementById('formulario');
+    const resultado = document.getElementById('resultado');
+
+    formulario.addEventListener('submit', function(e) {
+      e.preventDefault(); // Evita recargar la página
+
+      const nombre = document.getElementById('nombre').value;
+      const curso = document.getElementById('curso').value;
+      const especialidad = document.getElementById('especialidad').value;
+      const jornada = document.getElementById('jornada').value;
+
+      resultado.innerHTML = `
+        <h3>Datos ingresados:</h3>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Curso:</strong> ${curso}</p>
+        <p><strong>Especialidad:</strong> ${especialidad}</p>
+        <p><strong>Jornada:</strong> ${jornada}</p>
+      `;
+
+      formulario.reset(); // Limpia los campos
+    });
+  </script>
+</body>
+</html>
